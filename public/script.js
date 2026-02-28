@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.add('open');
         hamburger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
+        document.body.classList.add("nav-open");
     };
 
     window.closeMobileNav = () => {
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        document.body.classList.remove("nav-open");
     };
 
     hamburger?.addEventListener('click', () => {
