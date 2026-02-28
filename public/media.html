@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media &amp; Events | Living Christ International Prophetic Ministries</title>
+    <meta name="description"
+        content="Watch sermons, listen to messages, and stay updated on upcoming events from Living Christ International Prophetic Ministries." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://livingchristministries.org/media.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+        /* ── Media Page Extra Styles ── */
+        .media-tabs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .media-tab {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: none;
+            transition: all var(--transition);
+            font-family: var(--font-sans);
+        }
+
+        .media-tab.active,
+        .media-tab:hover {
+            background: var(--clr-gold);
+            border-color: var(--clr-gold);
+            color: var(--clr-white);
+        }
+
+        .media-section-bg {
+            background: var(--clr-dark);
+            color: var(--clr-white);
+            padding: var(--space-xl) 0;
+        }
+
+        .sermon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+        }
+
+        .sermon-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+
+        .sermon-card:hover {
+            border-color: rgba(201, 168, 76, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .sermon-thumb {
+            height: 180px;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sermon-thumb-icon {
+            font-size: 3rem;
+            opacity: 0.4;
+        }
+
+        .sermon-play {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--clr-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: transform var(--transition);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .sermon-play:hover {
+            transform: scale(1.1);
+        }
+
+        .sermon-tag {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: var(--clr-gold);
+            color: var(--clr-white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+        }
+
+        .sermon-body {
+            padding: 1.3rem;
+        }
+
+        .sermon-body .sermon-date {
+            font-size: 0.72rem;
+            color: var(--clr-gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .sermon-body h3 {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--clr-white);
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+
+        .sermon-body p {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.55;
+        }
+
+        /* Events */
+        .events-section {
+            background: var(--clr-off-white);
+            padding: var(--space-xl) 0;
+        }
+
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--clr-white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all var(--transition);
+        }
+
+        .event-card:hover {
+            border-color: var(--clr-gold);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .event-date-box {
+            text-align: center;
+            background: var(--clr-black);
+            border-radius: var(--radius-md);
+            padding: 0.8rem 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .event-date-box .month {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--clr-gold);
+        }
+
+        .event-date-box .day {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--clr-white);
+            line-height: 1;
+        }
+
+        .event-info .event-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--clr-gold);
+            padding: 0.15rem 0.6rem;
+            border-radius: 50px;
+            margin-bottom: 0.4rem;
+        }
+
+        .event-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--clr-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .event-info p {
+            font-size: 0.82rem;
+            color: var(--clr-gray);
+        }
+
+        .event-register {
+            flex-shrink: 0;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            background: var(--clr-black);
+            padding: var(--space-xl) 0;
+            color: var(--clr-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 0.75rem;
+        }
+
+        .gallery-item {
+            background: var(--clr-dark-2);
+            border-radius: var(--radius-md);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: transform var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition);
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #111, #2a2a2a);
+        }
+
+        .gallery-icon {
+            position: relative;
+            z-index: 1;
+            font-size: 3rem;
+            opacity: 0.25;
+        }
+
+        .gallery-item:first-child .gallery-icon {
+            font-size: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .sermon-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .event-card {
+                grid-template-columns: 70px 1fr;
+            }
+
+            .event-register {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Living Christ Ministries Home">
+                <span class="logo-main">Living Christ</span>
+                <span class="logo-sub">International Prophetic Ministries</span>
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="index.html#home" role="menuitem">Home</a></li>
+                <li><a href="index.html#about" role="menuitem">About</a></li>
+                <li><a href="programs.html" role="menuitem">Programs</a></li>
+                <li><a href="media.html" role="menuitem" class="active">Media</a></li>
+                <li><a href="partner.html" role="menuitem">Partner &amp; Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">✕</button>
+        <a href="index.html" onclick="closeMobileNav()">Home</a>
+        <a href="index.html#about" onclick="closeMobileNav()">About</a>
+        <a href="programs.html" onclick="closeMobileNav()">Programs</a>
+        <a href="media.html" onclick="closeMobileNav()">Media</a>
+        <a href="partner.html" onclick="closeMobileNav()">Partner &amp; Contact</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" aria-label="Media page header">
+        <div class="container">
+            <p class="page-hero-label">Stay Connected</p>
+            <h1>Media &amp; Events</h1>
+            <p>Watch sermons, listen to messages, and follow upcoming crusades, conferences, and Kingdom gatherings.</p>
+        </div>
+    </header>
+
+    <!-- SERMONS SECTION -->
+    <section class="media-section-bg" id="sermons" aria-label="Sermon videos">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Messages</span>
+                <h2 class="section-title section-title--white">Sermon Videos</h2>
+                <hr class="section-divider" />
+                <p class="section-desc" style="color:rgba(255,255,255,0.6);">Watch powerful teachings and prophetic
+                    messages from our ministry services and conferences.</p>
+            </div>
+
+            <div class="sermon-grid">
+
+                <article class="sermon-card reveal" aria-label="Sermon: Walking in Spiritual Maturity">
+                    <div class="sermon-thumb">
+                        <div class="sermon-tag">Featured</div>
+                        <div class="sermon-thumb-icon" aria-hidden="true">🎥</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">February 2025</div>
+                        <h3>Walking in Spiritual Maturity</h3>
+                        <p>Understanding Colossians 1:28 and what it means to be presented mature in Christ.</p>
+                    </div>
+                </article>
+
+                <article class="sermon-card reveal" aria-label="Sermon: The Apostolic Mandate">
+                    <div class="sermon-thumb">
+                        <div class="sermon-thumb-icon" aria-hidden="true">🎙️</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">January 2025</div>
+                        <h3>The Apostolic Mandate</h3>
+                        <p>Discovering the five-fold ministry in Ephesians 4:11–13 and your role in Kingdom expansion.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="sermon-card reveal" aria-label="Sermon: Go and Make Disciples">
+                    <div class="sermon-thumb">
+                        <div class="sermon-thumb-icon" aria-hidden="true">🌍</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">December 2024</div>
+                        <h3>Go and Make Disciples</h3>
+                        <p>The Great Commission in Matthew 28:19 — our responsibility to the nations.</p>
+                    </div>
+                </article>
+
+                <article class="sermon-card reveal" aria-label="Sermon: Identity in Christ">
+                    <div class="sermon-thumb">
+                        <div class="sermon-thumb-icon" aria-hidden="true">✨</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">November 2024</div>
+                        <h3>Identity in Christ</h3>
+                        <p>You are more than a conqueror. Understanding your true identity in the Kingdom of God.</p>
+                    </div>
+                </article>
+
+                <article class="sermon-card reveal" aria-label="Sermon: Power of the Holy Spirit">
+                    <div class="sermon-thumb">
+                        <div class="sermon-thumb-icon" aria-hidden="true">🔥</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">October 2024</div>
+                        <h3>Power of the Holy Spirit</h3>
+                        <p>Acts 1:8 — You will receive power when the Holy Spirit comes upon you.</p>
+                    </div>
+                </article>
+
+                <article class="sermon-card reveal" aria-label="Sermon: Raising the Next Generation">
+                    <div class="sermon-thumb">
+                        <div class="sermon-thumb-icon" aria-hidden="true">🙌</div>
+                        <div class="sermon-play" role="button" aria-label="Play sermon" tabindex="0">▶</div>
+                    </div>
+                    <div class="sermon-body">
+                        <div class="sermon-date">September 2024</div>
+                        <h3>Raising the Next Generation</h3>
+                        <p>A prophetic call to invest in children and youth for Kingdom transformation.</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center" style="margin-top:var(--space-md);">
+                <a href="#" class="btn btn-primary">View All Sermons</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section" id="events" aria-label="Upcoming events">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Calendar</span>
+                <h2 class="section-title">Upcoming Events</h2>
+                <hr class="section-divider" />
+                <p class="section-desc">Join us at our upcoming crusades, training sessions, and Kingdom gatherings
+                    across Uganda and Africa.</p>
+            </div>
+
+            <div class="events-list">
+
+                <article class="event-card reveal" aria-label="Event: Annual Prophetic Conference 2025">
+                    <div class="event-date-box" aria-hidden="true">
+                        <div class="month">Mar</div>
+                        <div class="day">15</div>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Conference</span>
+                        <h3>Annual Prophetic Conference 2025</h3>
+                        <p>📍 Kampala, Uganda &nbsp;·&nbsp; 🕒 9:00 AM – 6:00 PM</p>
+                    </div>
+                    <div class="event-register">
+                        <a href="partner.html#contact" class="btn btn-dark">Register</a>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" aria-label="Event: Women's Empowerment Summit">
+                    <div class="event-date-box" aria-hidden="true">
+                        <div class="month">Apr</div>
+                        <div class="day">05</div>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Summit</span>
+                        <h3>Women's Empowerment Summit</h3>
+                        <p>📍 Kampala, Uganda &nbsp;·&nbsp; 🕒 10:00 AM – 4:00 PM</p>
+                    </div>
+                    <div class="event-register">
+                        <a href="partner.html#contact" class="btn btn-dark">Register</a>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" aria-label="Event: Youth Leadership Retreat">
+                    <div class="event-date-box" aria-hidden="true">
+                        <div class="month">Apr</div>
+                        <div class="day">19</div>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Youth</span>
+                        <h3>Youth Leadership Retreat</h3>
+                        <p>📍 Uganda &nbsp;·&nbsp; 🕒 Weekend Retreat — Full Programme</p>
+                    </div>
+                    <div class="event-register">
+                        <a href="partner.html#contact" class="btn btn-dark">Register</a>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" aria-label="Event: Bible Training School Intake">
+                    <div class="event-date-box" aria-hidden="true">
+                        <div class="month">May</div>
+                        <div class="day">01</div>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Training</span>
+                        <h3>Bible Training School — New Intake</h3>
+                        <p>📍 Kampala, Uganda &nbsp;·&nbsp; 🕒 Enrollment opens May 1st</p>
+                    </div>
+                    <div class="event-register">
+                        <a href="partner.html#contact" class="btn btn-dark">Apply</a>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" aria-label="Event: National Evangelism Crusade">
+                    <div class="event-date-box" aria-hidden="true">
+                        <div class="month">Jun</div>
+                        <div class="day">20</div>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Crusade</span>
+                        <h3>National Evangelism Crusade</h3>
+                        <p>📍 Multiple Locations, Uganda &nbsp;·&nbsp; 🕒 3-Day Crusade</p>
+                    </div>
+                    <div class="event-register">
+                        <a href="partner.html#contact" class="btn btn-dark">Join Us</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY / PHOTOS SECTION -->
+    <section class="gallery-section" id="gallery" aria-label="Ministry photo gallery">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title section-title--white">Ministry Moments</h2>
+                <hr class="section-divider" />
+                <p class="section-desc" style="color:rgba(255,255,255,0.6);">A glimpse of what God is doing through our
+                    ministry across Uganda and the nations.</p>
+            </div>
+
+            <div class="gallery-grid reveal">
+                <div class="gallery-item" aria-label="Ministry gathering" tabindex="0">
+                    <div class="gallery-bg"></div>
+                    <div class="gallery-icon" aria-hidden="true">🙌</div>
+                    <div class="gallery-overlay" aria-hidden="true">🔍</div>
+                </div>
+                <div class="gallery-item" aria-label="Bible training" tabindex="0">
+                    <div class="gallery-bg"></div>
+                    <div class="gallery-icon" aria-hidden="true">📖</div>
+                    <div class="gallery-overlay" aria-hidden="true">🔍</div>
+                </div>
+                <div class="gallery-item" aria-label="Community outreach" tabindex="0">
+                    <div class="gallery-bg"></div>
+                    <div class="gallery-icon" aria-hidden="true">🌍</div>
+                    <div class="gallery-overlay" aria-hidden="true">🔍</div>
+                </div>
+                <div class="gallery-item" aria-label="Prayer and worship" tabindex="0">
+                    <div class="gallery-bg"></div>
+                    <div class="gallery-icon" aria-hidden="true">🔥</div>
+                    <div class="gallery-overlay" aria-hidden="true">🔍</div>
+                </div>
+                <div class="gallery-item" aria-label="Women empowerment" tabindex="0">
+                    <div class="gallery-bg"></div>
+                    <div class="gallery-icon" aria-hidden="true">👩</div>
+                    <div class="gallery-overlay" aria-hidden="true">🔍</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer aria-label="Site footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-main">Living Christ</div>
+                    <span class="logo-sub">International Prophetic Ministries</span>
+                    <p>Raising mature believers and transforming nations through the power of the Gospel.</p>
+                    <nav class="footer-social" aria-label="Social media">
+                        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+                        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">◈</a>
+                        <a href="#" class="social-btn" aria-label="WhatsApp">✆</a>
+                    </nav>
+                </div>
+                <nav class="footer-col" aria-label="Quick links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="media.html">Media &amp; Events</a></li>
+                        <li><a href="partner.html">Partner With Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-col" aria-label="Media links">
+                    <h4>Media</h4>
+                    <ul>
+                        <li><a href="#sermons">Sermon Videos</a></li>
+                        <li><a href="#events">Upcoming Events</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#">Audio Messages</a></li>
+                    </ul>
+                </nav>
+                <address class="footer-col" style="font-style:normal;">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+256700000000">📞 +256 700 000 000</a></li>
+                        <li><a href="https://wa.me/256700000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+                        <li><a href="mailto:info@livingchristministries.org">✉ Email Us</a></li>
+                        <li><span>📍 Kampala, Uganda</span></li>
+                    </ul>
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Living Christ International Prophetic Ministries. All rights reserved.</p>
+                <nav class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programs | Living Christ International Prophetic Ministries</title>
+    <meta name="description"
+        content="Explore the programs of Living Christ International Prophetic Ministries — Bible training schools, women empowerment, youth ministry, orphanage, and care homes across Africa and the nations." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://livingchristministries.org/programs.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+        /* ── Programs Page Extra Styles ── */
+        .program-detail {
+            padding: var(--space-xl) 0;
+        }
+
+        .program-detail:nth-child(even) {
+            background: var(--clr-off-white);
+        }
+
+        .program-detail:nth-child(odd) {
+            background: var(--clr-white);
+        }
+
+        .program-detail-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .program-detail:nth-child(even) .program-detail-inner {
+            direction: rtl;
+        }
+
+        .program-detail:nth-child(even) .program-detail-text {
+            direction: ltr;
+        }
+
+        .program-detail-visual {
+            background: var(--clr-dark-2);
+            border-radius: var(--radius-xl);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: ltr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-detail-visual .visual-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .program-detail-visual .visual-icon {
+            position: relative;
+            z-index: 1;
+            font-size: 5rem;
+            filter: drop-shadow(0 4px 20px rgba(201, 168, 76, 0.3));
+        }
+
+        .program-detail-text .program-number {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.06);
+            line-height: 1;
+            margin-bottom: -1rem;
+        }
+
+        .program-detail-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--clr-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .program-detail-text p {
+            font-size: 1rem;
+            color: var(--clr-mid);
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+
+        .program-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin: var(--space-sm) 0 var(--space-md);
+        }
+
+        .program-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.92rem;
+            color: var(--clr-dark);
+        }
+
+        .program-feature::before {
+            content: '✓';
+            width: 22px;
+            height: 22px;
+            background: var(--clr-gold);
+            color: var(--clr-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .program-detail-inner {
+                grid-template-columns: 1fr;
+                direction: ltr !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Living Christ Ministries Home">
+                <span class="logo-main">Living Christ</span>
+                <span class="logo-sub">International Prophetic Ministries</span>
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="index.html#home" role="menuitem">Home</a></li>
+                <li><a href="index.html#about" role="menuitem">About</a></li>
+                <li><a href="programs.html" role="menuitem" class="active">Programs</a></li>
+                <li><a href="media.html" role="menuitem">Media</a></li>
+                <li><a href="partner.html" role="menuitem">Partner &amp; Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">✕</button>
+        <a href="index.html" onclick="closeMobileNav()">Home</a>
+        <a href="index.html#about" onclick="closeMobileNav()">About</a>
+        <a href="programs.html" onclick="closeMobileNav()">Programs</a>
+        <a href="media.html" onclick="closeMobileNav()">Media</a>
+        <a href="partner.html" onclick="closeMobileNav()">Partner &amp; Contact</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" aria-label="Programs page header">
+        <div class="container">
+            <p class="page-hero-label">What We Do</p>
+            <h1>Our Programs</h1>
+            <p>Discover how Living Christ International Prophetic Ministries is equipping, empowering, and transforming
+                lives across Africa and beyond.</p>
+        </div>
+    </header>
+
+    <!-- PROGRAM 1: Bible Training Schools -->
+    <section class="program-detail" id="bible-schools" aria-label="Bible Training Schools program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-left" role="img"
+                    aria-label="Bible Training Schools illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">📖</div>
+                </div>
+                <div class="program-detail-text reveal-right">
+                    <div class="program-number" aria-hidden="true">01</div>
+                    <span class="section-label">Global Reach</span>
+                    <h2>Bible Training Schools</h2>
+                    <p>Our primary mandate is to plant Bible training schools globally — equipping every believer with
+                        the Word of God and the tools to carry the Gospel to every nation and people group.</p>
+                    <p>We train pastors, evangelists, teachers, and laypersons to go deep in Scripture and emerge as
+                        effective ministers of the Kingdom.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Structured curriculum grounded in Scripture</li>
+                        <li class="program-feature">Apostolic and prophetic ministry training</li>
+                        <li class="program-feature">Discipleship and character development</li>
+                        <li class="program-feature">Certification programs for graduates</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 2: Africa Schools Initiative -->
+    <section class="program-detail" id="africa" aria-label="Africa Schools Initiative program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-right" role="img"
+                    aria-label="Africa Schools Initiative illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">🌍</div>
+                </div>
+                <div class="program-detail-text reveal-left">
+                    <div class="program-number" aria-hidden="true">02</div>
+                    <span class="section-label">Africa</span>
+                    <h2>Africa Schools Initiative</h2>
+                    <p>We are establishing Christian schools and apostolic training centers across Africa to provide
+                        quality education grounded in Kingdom values — raising leaders who will transform their nations.
+                    </p>
+                    <p>Our vision is to see every African nation touched by the presence of a living, active,
+                        Spirit-filled community of believers and leaders.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Apostolic training centers nation-wide</li>
+                        <li class="program-feature">Christian schools across Africa</li>
+                        <li class="program-feature">Leadership and governance training</li>
+                        <li class="program-feature">Community development integration</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Support This Initiative</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 3: Women Empowerment -->
+    <section class="program-detail" id="women" aria-label="Women Empowerment program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-left" role="img" aria-label="Women Empowerment illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">👩</div>
+                </div>
+                <div class="program-detail-text reveal-right">
+                    <div class="program-number" aria-hidden="true">03</div>
+                    <span class="section-label">Empowerment</span>
+                    <h2>Women Empowerment</h2>
+                    <p>We believe every woman is created in God's image with unique gifts and purpose. Our women's
+                        empowerment program equips women spiritually, socially, and economically through focused
+                        training.</p>
+                    <p>We provide skill development workshops, income-generating initiatives, and mentorship programs
+                        that transform households and communities.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Vocational and skill training programs</li>
+                        <li class="program-feature">Income-generating initiatives</li>
+                        <li class="program-feature">Spiritual formation and prayer groups</li>
+                        <li class="program-feature">Business and entrepreneurship mentorship</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Empower a Woman Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 4: Youth & Children Ministry -->
+    <section class="program-detail" id="youth" aria-label="Youth and Children Ministry program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-right" role="img"
+                    aria-label="Youth and Children Ministry illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">🧒</div>
+                </div>
+                <div class="program-detail-text reveal-left">
+                    <div class="program-number" aria-hidden="true">04</div>
+                    <span class="section-label">Next Generation</span>
+                    <h2>Youth &amp; Children Ministry</h2>
+                    <p>The next generation is our greatest investment. We provide comprehensive counselling, spiritual
+                        guidance, and development programs for children, teenagers, and young adults.</p>
+                    <p>Our approach addresses the spiritual, emotional, and social needs of young people — equipping
+                        them to stand firm in their faith and fulfill their God-given purpose.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Child and teen counselling services</li>
+                        <li class="program-feature">Spiritual formation and discipleship</li>
+                        <li class="program-feature">Youth leadership and mentorship</li>
+                        <li class="program-feature">After-school and community programs</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Invest in the Next Generation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 5: Orphanage & Care Homes -->
+    <section class="program-detail" id="care" aria-label="Orphanage and Care Homes program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-left" role="img"
+                    aria-label="Orphanage and Care Homes illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">🏠</div>
+                </div>
+                <div class="program-detail-text reveal-right">
+                    <div class="program-number" aria-hidden="true">05</div>
+                    <span class="section-label">Compassion</span>
+                    <h2>Orphanage &amp; Care Homes</h2>
+                    <p>As an expression of God's love, we are committed to building a safe and nurturing orphanage for
+                        vulnerable children — providing shelter, education, spiritual care, and a family environment.
+                    </p>
+                    <p>We are also building care homes for the sick, including cancer patients, who need holistic care —
+                        body, mind, and spirit — in their most vulnerable moments.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Safe, loving environment for orphaned children</li>
+                        <li class="program-feature">Education and skills development support</li>
+                        <li class="program-feature">Holistic care for the sick and cancer patients</li>
+                        <li class="program-feature">Spiritual and pastoral care ministry</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Help Build a Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 6: Leadership Training -->
+    <section class="program-detail" id="leadership" aria-label="Leadership Training program">
+        <div class="container">
+            <div class="program-detail-inner">
+                <div class="program-detail-visual reveal-right" role="img"
+                    aria-label="Leadership Training illustration">
+                    <div class="visual-bg"></div>
+                    <div class="visual-icon" aria-hidden="true">👑</div>
+                </div>
+                <div class="program-detail-text reveal-left">
+                    <div class="program-number" aria-hidden="true">06</div>
+                    <span class="section-label">Kingdom Leaders</span>
+                    <h2>Leadership Training</h2>
+                    <p>We are raising apostolic leaders who do not simply occupy positions — but who carry the weight of
+                        God's glory into their spheres of influence: the church, government, business, and society.</p>
+                    <p>Our leadership training is rooted in character, Scripture, and the Holy Spirit — producing men
+                        and women who lead with integrity, compassion, and Kingdom vision.</p>
+                    <ul class="program-features">
+                        <li class="program-feature">Apostolic and prophetic leadership formation</li>
+                        <li class="program-feature">Governance, strategy, and administration</li>
+                        <li class="program-feature">Cross-cultural and missional leadership</li>
+                        <li class="program-feature">Mentorship by seasoned Kingdom leaders</li>
+                    </ul>
+                    <a href="partner.html" class="btn btn-dark">Raise a Leader</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section-padding" style="background:var(--clr-black);" aria-label="Programs call to action">
+        <div class="container text-center">
+            <span class="section-label">Get Involved</span>
+            <h2 class="section-title section-title--white reveal">Ready to Make a Difference?</h2>
+            <hr class="section-divider" />
+            <p class="section-desc reveal" style="color:rgba(255,255,255,0.65);">Whether you partner financially,
+                volunteer, or simply spread the word — you are part of what God is doing through this ministry.</p>
+            <div class="reveal"
+                style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:var(--space-md);">
+                <a href="partner.html" class="btn btn-gold">Become a Partner</a>
+                <a href="partner.html#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer aria-label="Site footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-main">Living Christ</div>
+                    <span class="logo-sub">International Prophetic Ministries</span>
+                    <p>Raising mature believers grounded in the Word of God, equipping leaders, and transforming
+                        nations.</p>
+                    <nav class="footer-social" aria-label="Social media">
+                        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+                        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">◈</a>
+                        <a href="#" class="social-btn" aria-label="WhatsApp">✆</a>
+                    </nav>
+                </div>
+                <nav class="footer-col" aria-label="Quick links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="media.html">Media &amp; Events</a></li>
+                        <li><a href="partner.html">Partner With Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-col" aria-label="Programs links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#bible-schools">Bible Training Schools</a></li>
+                        <li><a href="#africa">Africa Schools Initiative</a></li>
+                        <li><a href="#women">Women Empowerment</a></li>
+                        <li><a href="#youth">Youth &amp; Children</a></li>
+                        <li><a href="#care">Orphanage &amp; Care Homes</a></li>
+                    </ul>
+                </nav>
+                <address class="footer-col" style="font-style:normal;">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+256700000000">📞 +256 700 000 000</a></li>
+                        <li><a href="https://wa.me/256700000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+                        <li><a href="mailto:info@livingchristministries.org">✉ Email Us</a></li>
+                        <li><span>📍 Kampala, Uganda</span></li>
+                    </ul>
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Living Christ International Prophetic Ministries. All rights reserved.</p>
+                <nav class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+    <script src="script.js"></script>
+</body>
+
+</html>

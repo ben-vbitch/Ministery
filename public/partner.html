@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partner &amp; Contact | Living Christ International Prophetic Ministries</title>
+    <meta name="description"
+        content="Partner with Living Christ International Prophetic Ministries. Contact us via phone, WhatsApp, email, or our online form. Kampala, Uganda." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://livingchristministries.org/partner.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+        /* ── Partner Page Extra Styles ── */
+        .partner-hero-section {
+            background: var(--clr-dark);
+            color: var(--clr-white);
+            padding: var(--space-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.08), transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.03), transparent 60%);
+            pointer-events: none;
+        }
+
+        .partner-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .partner-hero-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--clr-white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .partner-hero-text p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-ways {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: var(--space-md);
+        }
+
+        .partner-way-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .partner-way-card:hover {
+            background: rgba(201, 168, 76, 0.1);
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        .partner-way-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .partner-way-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--clr-white);
+            margin-bottom: 0.4rem;
+        }
+
+        .partner-way-card p {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        /* Donation Tiers */
+        .donation-section {
+            background: var(--clr-off-white);
+            padding: var(--space-xl) 0;
+        }
+
+        .donation-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .tier-card {
+            background: var(--clr-white);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .tier-card.featured {
+            background: var(--clr-black);
+            color: var(--clr-white);
+            border-color: var(--clr-gold);
+            transform: scale(1.03);
+        }
+
+        .tier-card:hover {
+            border-color: var(--clr-gold);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--clr-gold);
+            color: var(--clr-white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+        }
+
+        .tier-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tier-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .tier-card .tier-amount {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+
+        .tier-card .tier-amount small {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .tier-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .tier-card:not(.featured) .tier-features li {
+            color: var(--clr-mid);
+        }
+
+        .tier-card.featured .tier-features li {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .tier-features li {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: var(--clr-gold);
+            font-weight: 700;
+        }
+
+        /* Contact Full Section */
+        .contact-full-section {
+            background: var(--clr-white);
+            padding: var(--space-xl) 0;
+        }
+
+        .contact-full-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background: var(--clr-dark-2);
+            border-radius: var(--radius-lg);
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--space-md);
+            font-size: 2.5rem;
+            opacity: 0.4;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #111, #1a1a1a);
+        }
+
+        .map-placeholder span {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .partner-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-tiers {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-full-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partner-ways {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .donation-tiers {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Living Christ Ministries Home">
+                <span class="logo-main">Living Christ</span>
+                <span class="logo-sub">International Prophetic Ministries</span>
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="index.html#home" role="menuitem">Home</a></li>
+                <li><a href="index.html#about" role="menuitem">About</a></li>
+                <li><a href="programs.html" role="menuitem">Programs</a></li>
+                <li><a href="media.html" role="menuitem">Media</a></li>
+                <li><a href="partner.html" role="menuitem" class="active">Partner &amp; Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">✕</button>
+        <a href="index.html" onclick="closeMobileNav()">Home</a>
+        <a href="index.html#about" onclick="closeMobileNav()">About</a>
+        <a href="programs.html" onclick="closeMobileNav()">Programs</a>
+        <a href="media.html" onclick="closeMobileNav()">Media</a>
+        <a href="partner.html" onclick="closeMobileNav()">Partner &amp; Contact</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" aria-label="Partner page header">
+        <div class="container">
+            <p class="page-hero-label">Join the Vision</p>
+            <h1>Partner &amp; Contact</h1>
+            <p>Your partnership and support fuel the expansion of the Kingdom across Africa and the nations. Together,
+                we make an eternal difference.</p>
+        </div>
+    </header>
+
+    <!-- PARTNERSHIP INFO SECTION -->
+    <section class="partner-hero-section" id="partner" aria-label="Partnership information">
+        <div class="container">
+            <div class="partner-hero-grid">
+
+                <div class="partner-hero-text reveal-left">
+                    <span class="section-label">Partnership</span>
+                    <h2>Why Partner With Living Christ Ministries?</h2>
+                    <p>
+                        Every gift, every prayer, every act of partnership directly equips a believer, trains a leader,
+                        empowers a woman, shelters an orphan, and advances the Gospel into unreached places.
+                    </p>
+                    <p>
+                        When you partner with us, you are not giving to an organization — you are investing in a Kingdom
+                        movement that will outlast us all.
+                    </p>
+                    <blockquote
+                        style="background:rgba(201,168,76,0.1);border-left:3px solid var(--clr-gold);padding:1rem 1.25rem;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-top:var(--space-sm);">
+                        <p
+                            style="font-family:var(--font-serif);font-style:italic;color:rgba(255,255,255,0.85);margin:0;">
+                            "We proclaim Him, admonishing every man and teaching every man with all wisdom, so that we
+                            may present every man mature in Christ." — Colossians 1:28</p>
+                    </blockquote>
+                    <div style="margin-top:var(--space-md);">
+                        <a href="#contact" class="btn btn-gold">Contact Us to Partner</a>
+                    </div>
+                </div>
+
+                <div class="reveal-right">
+                    <div class="partner-ways">
+                        <div class="partner-way-card">
+                            <div class="partner-way-icon" aria-hidden="true">💰</div>
+                            <h4>Financial Giving</h4>
+                            <p>Support our programs, schools, and outreach initiatives through regular giving.</p>
+                        </div>
+                        <div class="partner-way-card">
+                            <div class="partner-way-icon" aria-hidden="true">🙏</div>
+                            <h4>Prayer Partnership</h4>
+                            <p>Intercede for the ministry, our founder, and the nations we are reaching.</p>
+                        </div>
+                        <div class="partner-way-card">
+                            <div class="partner-way-icon" aria-hidden="true">🤝</div>
+                            <h4>Volunteer</h4>
+                            <p>Offer your skills and time to support programs, events, and community work.</p>
+                        </div>
+                        <div class="partner-way-card">
+                            <div class="partner-way-icon" aria-hidden="true">📢</div>
+                            <h4>Spread the Word</h4>
+                            <p>Share our vision on social media and in your network to multiply impact.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATION TIERS SECTION -->
+    <section class="donation-section" id="donate" aria-label="Donation tiers">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Give</span>
+                <h2 class="section-title">Ways to Give</h2>
+                <hr class="section-divider" />
+                <p class="section-desc">Every amount makes an eternal difference. Choose a giving level that works for
+                    you.</p>
+            </div>
+
+            <div class="donation-tiers">
+
+                <div class="tier-card reveal">
+                    <div class="tier-icon" aria-hidden="true">🌱</div>
+                    <h3>Seed Partner</h3>
+                    <div class="tier-amount">$20 <small>/ month</small></div>
+                    <ul class="tier-features">
+                        <li>Support daily operations</li>
+                        <li>Receive ministry newsletter</li>
+                        <li>Prayer updates</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">Give Now</a>
+                </div>
+
+                <div class="tier-card featured reveal">
+                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-icon" aria-hidden="true">🔥</div>
+                    <h3>Kingdom Partner</h3>
+                    <div class="tier-amount">$50 <small>/ month</small></div>
+                    <ul class="tier-features">
+                        <li>Fund Bible training programs</li>
+                        <li>Sponsor a student monthly</li>
+                        <li>Regular impact reports</li>
+                        <li>Personal prayer coverage</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center;">Give Now</a>
+                </div>
+
+                <div class="tier-card reveal">
+                    <div class="tier-icon" aria-hidden="true">👑</div>
+                    <h3>Legacy Partner</h3>
+                    <div class="tier-amount">$100 <small>/ month</small></div>
+                    <ul class="tier-features">
+                        <li>Major program sponsorship</li>
+                        <li>Build infrastructure</li>
+                        <li>Quarterly impact meetings</li>
+                        <li>Legacy recognition</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">Give Now</a>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <p style="color:var(--clr-gray);font-size:0.88rem;">Prefer a one-time gift? <a href="#contact"
+                        style="color:var(--clr-gold);font-weight:600;">Contact us</a> to arrange a custom donation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FULL SECTION -->
+    <section class="contact-full-section" id="contact" aria-label="Contact Living Christ Ministries">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <hr class="section-divider" />
+                <p class="section-desc">We'd love to hear from you. Reach out through any of the channels below — we
+                    respond within 24 hours.</p>
+            </div>
+
+            <div class="contact-full-grid">
+
+                <!-- Contact Info Side -->
+                <aside class="reveal-left">
+                    <h3
+                        style="font-family:var(--font-serif);font-size:1.4rem;color:var(--clr-dark);margin-bottom:var(--space-sm);">
+                        Contact Information</h3>
+
+                    <address style="font-style:normal;">
+                        <div class="contact-items">
+
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">📞</div>
+                                <div>
+                                    <div class="contact-item-label">Phone</div>
+                                    <a href="tel:+256700000000" class="contact-item-value">+256 700 000 000</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon whatsapp" aria-hidden="true">💬</div>
+                                <div>
+                                    <div class="contact-item-label">WhatsApp</div>
+                                    <a href="https://wa.me/256700000000" class="contact-item-value" target="_blank"
+                                        rel="noopener noreferrer">
+                                        +256 700 000 000 — Chat with us
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon email" aria-hidden="true">✉️</div>
+                                <div>
+                                    <div class="contact-item-label">Email</div>
+                                    <a href="mailto:info@livingchristministries.org"
+                                        class="contact-item-value">info@livingchristministries.org</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon address" aria-hidden="true">📍</div>
+                                <div>
+                                    <div class="contact-item-label">Office Address</div>
+                                    <span class="contact-item-value">Kampala, Uganda<br />East Africa</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </address>
+
+                    <!-- Map Placeholder -->
+                    <div class="map-placeholder" role="img" aria-label="Office location map — Kampala, Uganda">
+                        <span>📍</span>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--clr-gray);margin-top:0.5rem;text-align:center;">Kampala,
+                        Uganda — East Africa</p>
+                </aside>
+
+                <!-- Contact Form Side -->
+                <div class="contact-form-card reveal-right">
+                    <h3>Send Us a Message</h3>
+
+                    <form id="contact-form" novalidate aria-label="Partner contact form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="John" required
+                                    autocomplete="given-name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Doe" required
+                                    autocomplete="family-name" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required
+                                autocomplete="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900"
+                                autocomplete="tel" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">I Want To…</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a reason…</option>
+                                <option value="partner">Become a Partner</option>
+                                <option value="donate">Make a Donation</option>
+                                <option value="volunteer">Volunteer</option>
+                                <option value="prayer">Submit a Prayer Request</option>
+                                <option value="programs">Learn About Programs</option>
+                                <option value="events">Event Registration</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" placeholder="Your country"
+                                autocomplete="country-name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"
+                                placeholder="Tell us more about how you'd like to get involved or how we can help you…"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark form-submit">Send Message →</button>
+                    </form>
+
+                    <div class="form-success" id="form-success" aria-live="polite">
+                        <h4>✦ Message Received!</h4>
+                        <p>Thank you for reaching out. We'll get back to you within 24 hours. God bless you abundantly!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer aria-label="Site footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-main">Living Christ</div>
+                    <span class="logo-sub">International Prophetic Ministries</span>
+                    <p>Raising mature believers and transforming nations through the power of the Gospel.</p>
+                    <nav class="footer-social" aria-label="Social media">
+                        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+                        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">◈</a>
+                        <a href="#" class="social-btn" aria-label="WhatsApp">✆</a>
+                    </nav>
+                </div>
+                <nav class="footer-col" aria-label="Quick links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="media.html">Media &amp; Events</a></li>
+                        <li><a href="partner.html">Partner With Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-col" aria-label="Partnership links">
+                    <h4>Partner</h4>
+                    <ul>
+                        <li><a href="#partner">Why Partner</a></li>
+                        <li><a href="#donate">Ways to Give</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                    </ul>
+                </nav>
+                <address class="footer-col" style="font-style:normal;">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+256700000000">📞 +256 700 000 000</a></li>
+                        <li><a href="https://wa.me/256700000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+                        <li><a href="mailto:info@livingchristministries.org">✉ Email Us</a></li>
+                        <li><span>📍 Kampala, Uganda</span></li>
+                    </ul>
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Living Christ International Prophetic Ministries. All rights reserved.</p>
+                <nav class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+    <script src="script.js"></script>
+</body>
+
+</html>
