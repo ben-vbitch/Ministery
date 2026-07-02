@@ -1131,3 +1131,19 @@
     color: inherit;
     cursor: pointer;
 }
+.featured-stack{
+    display:flex;
+    flex-direction:column;
+    gap:80px;
+}
+
+.featured-stack .featured-scene{
+    perspective:1400px;
+    display:flex;
+    justify-content:center;
+}
+
+.featured-stack .featured-card{
+    width:100%;
+    max-width:900px;
+}
