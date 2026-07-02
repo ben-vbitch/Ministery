@@ -1125,3 +1125,9 @@
   .gallery-hero-title .line-1 { font-size: 36px; }
   .gallery-hero-title .line-2 { font-size: 46px; }
 }
+.featured-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
